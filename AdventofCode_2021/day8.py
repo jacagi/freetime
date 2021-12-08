@@ -1,12 +1,9 @@
+import itertools
 
 check_1478 = lambda x: 1 if len(x) in [2,3,4,7] else 0
 split_signals = lambda x: x.split(" | ")[1].split(" ")
 
-print("-*-*-*-*-*-*-*-*-*-*-*-")
-sumatotal = 0
-for x in list(map(split_signals,open("input8.txt", "r").read().splitlines())):
-    sumatotal += sum(map(check_1478, x))
-print("Day 8 Part 1: " + str(sumatotal))
+file = open("input8.txt", "r").read().splitlines()
 
 def calculate_result(line):
     complete_line = line.split(" | ")
@@ -37,5 +34,7 @@ def calculate_result(line):
         coderesult.append(list(numbers.keys())[list(numbers.values()).index("".join(sorted(r)))])
     return coderesult[0]*1000 + coderesult[1]*100 + coderesult[2]*10 + coderesult[3]
 
-print("Day 8 Part 2: " + str(sum(map(calculate_result, open("input8.txt", "r").read().splitlines()))))
+print("-*-*-*-*-*-*-*-*-*-*-*-")
+print("Day 8 Part 1: " + str(sum(map(check_1478, list(itertools.chain(*list(map(split_signals,file))))))))
+print("Day 8 Part 2: " + str(sum(map(calculate_result, file))))
 print("-*-*-*-*-*-*-*-*-*-*-*-")

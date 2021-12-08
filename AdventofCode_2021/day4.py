@@ -3,8 +3,6 @@ import re
 to_rows = lambda x: list(map(int,re.findall(r'\d+', x)))
 to_box = lambda x: list(map(to_rows, x.split("\n")))
 
-#DAY 4
-print("-*-*-*-*-*-*-*-*-*-*-*-")
 file = open("input4.txt", "r").read().split("\n\n")
 sortedNumbers = list(map(int,file.pop(0).split(",")))
 
@@ -42,7 +40,7 @@ def check_cards(sortedNumbers, cards):
             if remove_number(c, number):
                 if check_any_empty_row(c) or check_any_empty_col(c):
                     return calculate_result(number, c)             
-print("Day 4 Part 1: " + str(check_cards(sortedNumbers, cards)))
+
 def check_loser(sortedNumbers, cards):
     for number in sortedNumbers:
         cards_to_pop = []
@@ -56,5 +54,8 @@ def check_loser(sortedNumbers, cards):
         cards_to_pop.sort(reverse=True)  
         for c in cards_to_pop:
             cards.pop(c)
+
+print("-*-*-*-*-*-*-*-*-*-*-*-")
+print("Day 4 Part 1: " + str(check_cards(sortedNumbers, cards)))
 print("Day 4 Part 2: " + str(check_loser(sortedNumbers, cards)))
 print("-*-*-*-*-*-*-*-*-*-*-*-")
