@@ -14,9 +14,9 @@ screensize = (828,1792)
 black = (0,0,0)
 
 reddit = praw.Reddit(
-    client_id="",
-    client_secret="",
-    user_agent="",
+    client_id="L6mNZ452VKIiDK-pdOU_Tw",
+    client_secret="VfDMlPU0bhvOYRipLPP3UfqIvqKCFQ",
+    user_agent="windows:com.testapp.testapp:v1.0.0 (by /u/Winter-Platypus-926)",
 )
 submission = reddit.submission(id=post_id)
 
